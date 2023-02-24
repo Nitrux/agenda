@@ -18,7 +18,6 @@ apt -qq update
 
 apt -qq -yy install --no-install-recommends \
 	mauikit-calendar-git \
-	mauikit-filebrowsing-git \
 	mauikit-git
 
 ### Download Source
@@ -67,7 +66,7 @@ checkinstall -D -y \
 	--pakdir=. \
 	--maintainer=uri_herrera@nxos.org \
 	--provides=agenda \
-	--requires="libc6,libkf5akonadicore5,libkf5akonadicontact5,libkf5calendarsupport5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mauikit-accounts-git \(\>= 2.2.2+git\),mauikit-calendar-git \(\>= 2.2.2+git\),mauikit-filebrowsing-git \(\>= 2.2.2+git\),mauikit-git \(\>= 2.2.2+git\)" \
+	--requires="libc6,libkf5akonadicore5,libkf5akonadicontact5,libkf5calendarsupport5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mauikit-accounts-git \(\>= 2.2.2+git\),mauikit-calendar-git \(\>= 2.2.2+git\),mauikit-git \(\>= 2.2.2+git\)" \
 	--nodoc \
 	--strip=no \
 	--stripso=yes \

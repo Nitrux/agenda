@@ -4,13 +4,13 @@ set -x
 
 ### Update sources
 
-wget -qO /etc/apt/sources.list.d/nitrux-depot.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux
-
+wget -qO /etc/apt/sources.list.d/nitrux-depot.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.depot
 wget -qO /etc/apt/sources.list.d/nitrux-testing.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.testing
+wget -qO /etc/apt/sources.list.d/nitrux-unison.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.unison
 
 curl -L https://packagecloud.io/nitrux/depot/gpgkey | apt-key add -;
-curl -L https://packagecloud.io/nitrux/unison/gpgkey | apt-key add -;
 curl -L https://packagecloud.io/nitrux/testing/gpgkey | apt-key add -;
+curl -L https://packagecloud.io/nitrux/unison/gpgkey | apt-key add -;
 
 apt -qq update
 
@@ -66,7 +66,7 @@ checkinstall -D -y \
 	--pakdir=. \
 	--maintainer=uri_herrera@nxos.org \
 	--provides=agenda \
-	--requires="akonadi-server,libc6,libkf5akonadicore5,libkf5akonadicontact5,libkf5calendarsupport5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libmariadb3,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mariadb-common,mauikit-calendar-git \(\>= 3.0.1+git\),mauikit-git \(\>= 3.0.1+git\)" \
+	--requires="akonadi-server,libc6,libkf5akonadicore5,libkf5akonadicontact5,libkf5calendarsupport5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libmariadb3,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mariadb-common,mauikit-calendar-git \(\>= 3.1.0+git\),mauikit-git \(\>= 3.1.0+git\)" \
 	--nodoc \
 	--strip=no \
 	--stripso=yes \

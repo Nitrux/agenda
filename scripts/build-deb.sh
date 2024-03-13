@@ -66,7 +66,7 @@ checkinstall -D -y \
 	--pakdir=. \
 	--maintainer=uri_herrera@nxos.org \
 	--provides=agenda \
-	--requires="akonadi-server,libc6,libkf5akonadicore5,libkf5akonadicontact5,libkf5calendarsupport5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libmariadb3,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mariadb-common,mauikit-calendar-git \(\>= 3.1.0+git\),mauikit-git \(\>= 3.1.0+git\)" \
+	--requires="akonadi-server,libc6,libkpim5akonadicore5,libkpim5akonadicontact5,libkpim5akonadicalendar5,libkf5coreaddons5,libkf5eventviews5,libkf5i18n5,libkf5kiocore5,libmariadb3,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mariadb-common,mauikit-calendar-git \(\>= 3.1.0+git\),mauikit-git \(\>= 3.1.0+git\)" \
 	--nodoc \
 	--strip=no \
 	--stripso=yes \

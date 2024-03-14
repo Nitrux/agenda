@@ -1,0 +1,47 @@
+name: Agenda AppImage
+
+on:
+  push:
+    branches: [ appimage ]
+
+jobs:
+  build-appimage:
+    runs-on: ubuntu-22.04
+
+    container:
+      image: ubuntu:noble
+      env:
+        DEBIAN_FRONTEND: noninteractive
+
+    steps:
+      - name: Install basic packages
+        run: apt-get update -q && apt-get -qy install sudo curl wget gnupg python3-pip patchelf git squashfs-tools zsync libgdk-pixbuf-2.0-0 libglib2.0-bin gtk-update-icon-cache gstreamer1.0-tools
+
+      - name: Install appimagetool
+        run: |
+          wget -qc https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O /opt/appimagetool
+          cd /opt/ && \
+          chmod +x appimagetool && \
+          sed -i 's|AI\x02|\x00\x00\x00|' appimagetool && \
+          ./appimagetool --appimage-extract && \
+          mv /opt/squashfs-root /opt/appimagetool.AppDir && \
+          ln -s /opt/appimagetool.AppDir/AppRun /usr/local/bin/appimagetool && \
+          rm /opt/appimagetool
+
+      - name: Install AppImage Builder
+        run: |
+          sudo -H pip3 install git+https://github.com/AppImageCrafters/appimage-builder.git --break-system-packages
+
+      - uses: actions/checkout@v2
+      - name: Build AppImage
+        run: sudo -E appimage-builder --skip-tests --recipe application-appimage.yml
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "continuous"
+          files: |
+            ./*.AppImage*
+        if: github.ref == 'refs/heads/appimage'

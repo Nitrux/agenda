@@ -70,6 +70,7 @@ AppDir:
     - libkpim5eventviews5
     - libldap2
     - libmariadb3
+    - libmd4c0
     - libqt5core5a
     - libqt5gui5
     - libqt5publishsubscribe5

@@ -77,6 +77,7 @@ AppDir:
     - libkf5windowsystem5
     - libkf5xmlgui5
     - libkf5sonnetui5
+    - libkf5service5
 
     # KPIM DEPENDENCIES
     - libkpim5akonadiagentbase5

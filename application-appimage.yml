@@ -90,6 +90,7 @@ AppDir:
     - qml-module-org-kde-kirigami2
     - qml-module-qtquick-controls2
     - qml-module-qtquick-shapes
+    - libkf5iconthemes5
 
     exclude:
     - akonadi-backend-mysql

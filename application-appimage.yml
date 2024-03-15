@@ -27,7 +27,7 @@ AppDir:
       # APPDIR_LIBRARY_PATH: "$APPDIR/lib/x86_64-linux-gnu:$APPDIR/usr/lib:$APPDIR/usr/lib/x86_64-linux-gnu"
       QT_QUICK_CONTROLS_STYLE: "maui-style"
   after_bundle:
-    - cd $APPDIR/bin/ && ln -sf bash sh
+    - cd $APPDIR/bin/ && ln -sf bash sh && cd -
   apt:
     arch:
     - amd64
@@ -49,6 +49,7 @@ AppDir:
     - akonadi-server
     - libicu74
     - libkf5configcore5
+    - libkf5contacts5
     - libkf5coreaddons5
     - libkf5i18n5
     - libkf5kiocore5

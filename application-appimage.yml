@@ -92,6 +92,7 @@ AppDir:
     - qml-module-qtquick-shapes
     - libkf5iconthemes5
     - libical3
+    - libcanberra0
 
     exclude:
     - akonadi-backend-mysql

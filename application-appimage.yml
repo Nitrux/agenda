@@ -56,6 +56,7 @@ AppDir:
     - libkf5itemmodels5
     - libkf5kiocore5
     - libkf5notifications5
+    - libkf5windowsystem5
     - libkpim5akonadiagentbase5
     - libkpim5akonadicalendar5
     - libkpim5akonadicontact5

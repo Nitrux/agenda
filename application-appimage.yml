@@ -78,6 +78,7 @@ AppDir:
     - libkf5xmlgui5
     - libkf5sonnetui5
     - libkf5service5
+    - libkf5guiaddons5
 
     # KPIM DEPENDENCIES
     - libkpim5akonadiagentbase5

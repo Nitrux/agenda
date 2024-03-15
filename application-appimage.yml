@@ -47,6 +47,7 @@ AppDir:
     # TARGET DEPENDENCIES
     # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
     - akonadi-server
+    - libdouble-conversion3
     - libicu74
     - libkf5calendarcore5abi2
     - libkf5configcore5

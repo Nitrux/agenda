@@ -58,6 +58,7 @@ AppDir:
     - libqgpgme15
     - libxcb-keysyms1
     - mariadb-common
+    - libgrantlee-templates5
 
     # KF5 DEPENDENCIES
     - libkf5calendarcore5abi2

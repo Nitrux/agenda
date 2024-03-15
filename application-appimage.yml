@@ -89,6 +89,7 @@ AppDir:
     - libkpim5eventviews5
 
     # QT5 DEPENDENCIES
+    - libdbusmenu-qt5-2
     - libqt5core5a
     - libqt5gui5
     - libqt5publishsubscribe5
@@ -99,7 +100,6 @@ AppDir:
     - libqt5texttospeech5
     - libqt5waylandclient5
     - libqt5x11extras5
-    - libdbusmenu-qt5-2
 
     # QML DEPENDENCIES
     - qml-module-org-kde-kirigami2

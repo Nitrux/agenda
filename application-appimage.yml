@@ -99,6 +99,7 @@ AppDir:
     - libqt5texttospeech5
     - libqt5waylandclient5
     - libqt5x11extras5
+    - libdbusmenu-qt5-2
 
     # QML DEPENDENCIES
     - qml-module-org-kde-kirigami2

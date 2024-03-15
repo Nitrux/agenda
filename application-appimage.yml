@@ -91,6 +91,7 @@ AppDir:
     - qml-module-qtquick-controls2
     - qml-module-qtquick-shapes
     - libkf5iconthemes5
+    - libical3
 
     exclude:
     - akonadi-backend-mysql

@@ -93,6 +93,7 @@ AppDir:
     - libkf5iconthemes5
     - libical3
     - libcanberra0
+    - libqt5texttospeech5
 
     exclude:
     - akonadi-backend-mysql

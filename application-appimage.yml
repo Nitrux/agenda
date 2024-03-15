@@ -47,7 +47,9 @@ AppDir:
     # TARGET DEPENDENCIES
     # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
     - akonadi-server
+    - libcanberra0
     - libdouble-conversion3
+    - libical3
     - libicu74
     - libkf5calendarcore5abi2
     - libkf5codecs5
@@ -55,6 +57,7 @@ AppDir:
     - libkf5contacts5
     - libkf5coreaddons5
     - libkf5i18n5
+    - libkf5iconthemes5
     - libkf5itemmodels5
     - libkf5jobwidgets5
     - libkf5kiocore5
@@ -85,15 +88,13 @@ AppDir:
     - libqt5serviceframework5
     - libqt5sql5
     - libqt5systeminfo5
+    - libqt5texttospeech5
+    - libqt5waylandclient5
     - libqt5x11extras5
     - mariadb-common
     - qml-module-org-kde-kirigami2
     - qml-module-qtquick-controls2
     - qml-module-qtquick-shapes
-    - libkf5iconthemes5
-    - libical3
-    - libcanberra0
-    - libqt5texttospeech5
 
     exclude:
     - akonadi-backend-mysql

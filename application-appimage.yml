@@ -50,6 +50,7 @@ AppDir:
     - libdouble-conversion3
     - libicu74
     - libkf5calendarcore5abi2
+    - libkf5codecs5
     - libkf5configcore5
     - libkf5contacts5
     - libkf5coreaddons5

@@ -72,6 +72,7 @@ AppDir:
     - libldap2
     - libmariadb3
     - libmd4c0
+    - libpcre2-16-0
     - libqt5core5a
     - libqt5gui5
     - libqt5publishsubscribe5

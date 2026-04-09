@@ -1,32 +1,24 @@
 #!/usr/bin/env bash
 
-set -x
+# SPDX-License-Identifier: BSD-3-Clause
+# Copyright 2025-2026 <Nitrux Latinoamericana S.C. <hello@nxos.org>>
 
-### Update sources
 
-wget -qO /etc/apt/sources.list.d/nitrux-depot.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.depot
-wget -qO /etc/apt/sources.list.d/nitrux-testing.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.testing
-wget -qO /etc/apt/sources.list.d/nitrux-unison.list https://raw.githubusercontent.com/Nitrux/iso-tool/legacy/configs/files/sources/sources.list.nitrux.unison
+# -- Exit on errors.
 
-curl -L https://packagecloud.io/nitrux/depot/gpgkey | apt-key add -;
-curl -L https://packagecloud.io/nitrux/testing/gpgkey | apt-key add -;
-curl -L https://packagecloud.io/nitrux/unison/gpgkey | apt-key add -;
+set -e
 
-apt -qq update
 
-### Install Package Build Dependencies #2
+# -- Download Source
 
-apt -qq -yy install --no-install-recommends \
-	mauikit-calendar-git \
-	mauikit-git
+git clone --depth 1 --branch "$AGENDA_BRANCH" https://github.com/Nitrux/maui-agenda.git
 
-### Download Source
 
-git clone --depth 1 --branch $AGENDA_BRANCH https://invent.kde.org/maui/agenda.git
-
-### Compile Source
+# -- Compile Source
 
 mkdir -p build && cd build
+
+HOST_MULTIARCH=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 cmake \
 	-DCMAKE_INSTALL_PREFIX=/usr \
@@ -39,36 +31,41 @@ cmake \
 	-DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON \
 	-DCMAKE_INSTALL_RUNSTATEDIR=/run "-GUnix Makefiles" \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
-	-DCMAKE_INSTALL_LIBDIR=/usr/lib/x86_64-linux-gnu ../agenda/
+	-DCMAKE_INSTALL_LIBDIR="/usr/lib/${HOST_MULTIARCH}" \
+	../maui-agenda/
 
-make -j$(nproc)
+make -j"$(nproc)"
 
 make install
 
-### Run checkinstall and Build Debian Package
+
+# -- Run checkinstall and Build Debian Package
 
 >> description-pak printf "%s\n" \
-	'Calendar application built with MauiKit.' \
+	'MauiKit Image gallery manager.' \
 	'' \
-	'Agenda works on desktops, Android and Plasma Mobile.' \
+	'Agenda is a calendar application made for Android and Plasma Mobile.' \
+	'' \
+	'Agenda works under Android and GNU/Linux distros.' \
+	'' \
 	''
 
 checkinstall -D -y \
-	--install=no \
-	--fstrans=yes \
-	--pkgname=agenda-git \
-	--pkgversion=$PACKAGE_VERSION \
-	--pkgarch=amd64 \
-	--pkgrelease="1" \
-	--pkglicense=LGPL-3 \
-	--pkggroup=utils \
-	--pkgsource=agenda \
-	--pakdir=. \
-	--maintainer=uri_herrera@nxos.org \
-	--provides=agenda \
-	--requires="akonadi-server,libc6,libkpim5akonadicore5,libkpim5akonadicontact5,libkpim5akonadicalendar5,libkf5coreaddons5,libkpim5eventviews5,libkf5i18n5,libkf5kiocore5,libmariadb3,libqt5core5a,libqt5gui5,libqt5qml5,libqt5sql5,libqt5widgets5,mariadb-common,mauikit-calendar-git \(\>= 3.1.0+git\),mauikit-git \(\>= 3.1.0+git\)" \
-	--nodoc \
-	--strip=no \
-	--stripso=yes \
-	--reset-uids=yes \
-	--deldesc=yes
+    --install=no \
+    --fstrans=yes \
+    --pkgname=agenda \
+    --pkgversion="$PACKAGE_VERSION" \
+    --pkgarch="$(dpkg --print-architecture)" \
+    --pkgrelease="1" \
+    --pkglicense=LGPL-3 \
+    --pkggroup=utils \
+    --pkgsource=agenda \
+    --pakdir=. \
+    --maintainer=uri_herrera@nxos.org \
+    --provides=agenda \
+    --requires="mauikit (\>= 4.0.2),mauikit-calendar (\>= 4.0.2),qml6-module-qtcore,qml6-module-qtquick-effects" \
+    --nodoc \
+    --strip=no \
+    --stripso=yes \
+    --reset-uids=yes \
+    --deldesc=yes

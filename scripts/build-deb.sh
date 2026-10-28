@@ -63,7 +63,7 @@ checkinstall -D -y \
     --pakdir=. \
     --maintainer=uri_herrera@nxos.org \
     --provides=agenda \
-    --requires="mauikit \(\>= 4.0.4\),mauikit-calendar (\>= 4.0.4\),qml6-module-qtcore,qml6-module-qtquick-effects" \
+    --requires="mauikit \(\>= 4.0.4\),mauikit-calendar (\>= 4.0.4),mauikit-accounts (\>= 4.0.4),qml6-module-qtcore,qml6-module-qtquick-effects" \
     --nodoc \
     --strip=no \
     --stripso=yes \

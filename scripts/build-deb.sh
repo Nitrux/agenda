@@ -58,7 +58,7 @@ Priority: optional
 Architecture: ${TARGET_ARCH}
 Maintainer: uri_herrera@nxos.org
 Provides: agenda
-Depends: qml6-module-qtcore,qml6-module-qtquick,qml6-module-qtquick-controls,qml6-module-qtquick-effects,qml6-module-qtquick-layouts,libkf6coreaddons6,libkf6i18n6,libqt6core6t64,libqt6dbus6,libqt6gui6,libqt6network6,libqt6qml6,libqt6quick6,libqt6quickcontrols2-6,libqt6sql6,libqt6widgets6,mauikit (>= 4.0.5),mauikit-accounts (>= 4.0.5),mauikit-calendar (>= 4.0.5),mauikit-filebrowsing (>= 4.0.5)
+Depends: libc6,libkf6calendarcore6,libkf6configcore6,libkf6coreaddons6,libkf6i18n6,libkf6kiocore6,libqt6core6t64,libqt6dbus6,libqt6gui6,libqt6network6,libqt6qml6,libqt6quick6,libqt6quickcontrols2-6,libqt6sql6,libqt6svg6,libqt6widgets6,libsecret-1-0,mauikit (>= 4.0.5),mauikit-accounts (>= 4.0.5),mauikit-calendar (>= 4.0.5),mauikit-filebrowsing (>= 4.0.5),qml6-module-org-kde-calendarcore,qml6-module-org-kde-kirigami,qml6-module-qtcore,qml6-module-qtquick,qml6-module-qtquick-controls,qml6-module-qtquick-effects,qml6-module-qtquick-layouts,qml6-module-qtquick-shapes
 Description: agenda
  agenda
 CONTROL

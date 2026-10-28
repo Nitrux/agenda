@@ -6,7 +6,7 @@
 
 # -- Exit on errors.
 
-set -e
+set -euo pipefail
 
 
 # -- Check if running as root.
@@ -21,24 +21,40 @@ fi
 # -- Install build packages.
 
 $APT_COMMAND update -q
-$APT_COMMAND install -qy --no-install-recommends \
+$APT_COMMAND install -y --no-install-recommends \
     appstream \
     automake \
     autotools-dev \
     build-essential \
-    checkinstall \
+    qt6-wayland-dev \
+    qt6-svg-dev \
+    qt6-multimedia-dev \
+    libxkbcommon-dev \
+    libxcb-shape0-dev \
+    libxcb-icccm4-dev \
+    libkf6windowsystem-dev \
     cmake \
+    extra-cmake-modules \
+    pkg-config \
     curl \
     devscripts \
     equivs \
-    extra-cmake-modules \
     gettext \
     git \
     gnupg2 \
+    libkf6config-dev \
     libkf6coreaddons-dev \
     libkf6i18n-dev \
+    libkf6kio-dev \
+    libkf6notifications-dev \
+    libkf6syntaxhighlighting-dev \
     lintian \
+    qml6-module-qt5compat-graphicaleffects \
+    qml6-module-qtquick-controls \
+    qml6-module-qtquick-shapes \
     qt6-base-dev \
+    qt6-5compat-dev \
+    qt6-base-dev-tools \
     qt6-declarative-dev
 
 
@@ -60,5 +76,6 @@ EOF
 
 $APT_COMMAND update -q
 $APT_COMMAND install -y --no-install-recommends \
+    mauikit-accounts \
     mauikit-calendar \
-    mauikit-accounts
+    mauikit-filebrowsing

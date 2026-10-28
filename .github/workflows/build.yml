@@ -32,12 +32,15 @@ jobs:
       - name: Install CA certificates
         run: apt update && apt install -y ca-certificates
 
+      - name: Divert files conflicting during the APT transition
+        run: dpkg-divert --package util-linux --no-rename --add /usr/bin/logger
+
       - name: Update APT sources and upgrade
         run: |
           echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/10no-check-valid-until
           cat <<EOF > /etc/apt/sources.list.d/debian.sources
           Types: deb
-          URIs: https://snapshot.debian.org/archive/debian/20260514T142722Z
+          URIs: https://snapshot.debian.org/archive/debian/20261013T082854Z
           Suites: testing testing-updates
           Components: main non-free non-free-firmware contrib
           Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
@@ -72,12 +75,15 @@ jobs:
       - name: Install CA certificates
         run: apt update && apt install -y ca-certificates
 
+      - name: Divert files conflicting during the APT transition
+        run: dpkg-divert --package util-linux --no-rename --add /usr/bin/logger
+
       - name: Update APT sources and upgrade
         run: |
           echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/10no-check-valid-until
           cat <<EOF > /etc/apt/sources.list.d/debian.sources
           Types: deb
-          URIs: https://snapshot.debian.org/archive/debian/20260514T142722Z
+          URIs: https://snapshot.debian.org/archive/debian/20261013T082854Z
           Suites: testing testing-updates
           Components: main non-free non-free-firmware contrib
           Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg

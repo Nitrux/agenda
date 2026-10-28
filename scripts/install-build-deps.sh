@@ -43,6 +43,7 @@ $APT_COMMAND install -y --no-install-recommends \
     git \
     gnupg2 \
     libkf6config-dev \
+    libkf6calendarcore-dev \
     libkf6coreaddons-dev \
     libkf6i18n-dev \
     libkf6kio-dev \
